@@ -40,7 +40,7 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
             padding: 20px 40px;
             font-family: 'Mali', cursive;
             font-size: 0.95rem;
@@ -56,13 +56,14 @@
             text-decoration: none;
             cursor: pointer;
             transition: all 0.2s;
-            padding: 4px 8px;
+            padding: 6px 12px;
             border-radius: 8px;
         }
 
         .nav-link.active, .nav-link:hover {
             color: var(--accent-red);
             text-decoration: underline;
+            background-color: rgba(139, 0, 0, 0.05);
         }
 
         /* Page Management */
@@ -77,17 +78,17 @@
         .page {
             display: none;
             width: 100%;
-            animation: fadeIn 0.5s ease-in-out forwards;
         }
 
         .page.active {
             display: flex;
             flex-direction: column;
             align-items: center;
+            animation: fadeIn 0.4s ease-in-out forwards;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -233,12 +234,23 @@
             color: #555;
         }
 
-        /* Song Embed Style */
-        .song-container {
-            margin-top: 20px;
+        /* Custom Audio Player Card */
+        .player-card {
+            background: #f1ebd9;
+            border: 2px dashed var(--accent-red);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        audio {
             width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
+            max-width: 500px;
+            outline: none;
         }
 
         @media (max-width: 768px) {
@@ -251,15 +263,15 @@
 </head>
 <body>
 
-    <!-- Navigation Bar -->
+    <!-- Top Navigation Bar -->
     <nav>
-        <span class="nav-link active" onclick="switchPage('page-greetings', this)">Greetings</span>
-        <span class="nav-link" onclick="switchPage('page-no-option', this)">No Option</span>
-        <span class="nav-link" onclick="switchPage('page-gifts', this)">gifts</span>
-        <span class="nav-link" onclick="switchPage('page-pictures', this)">1 - Pictures</span>
-        <span class="nav-link" onclick="switchPage('page-flowers', this)">2 - Flowers</span>
-        <span class="nav-link" onclick="switchPage('page-song', this)">3 - Song</span>
-        <span class="nav-link" onclick="switchPage('page-letter', this)">4 - Letter</span>
+        <span class="nav-link active" onclick="openTab('page-greetings', this)">Greetings</span>
+        <span class="nav-link" onclick="openTab('page-no-option', this)">No Option</span>
+        <span class="nav-link" onclick="openTab('page-gifts', this)">gifts</span>
+        <span class="nav-link" onclick="openTab('page-pictures', this)">1 - Pictures</span>
+        <span class="nav-link" onclick="openTab('page-flowers', this)">2 - Flowers</span>
+        <span class="nav-link" onclick="openTab('page-song', this)">3 - Song</span>
+        <span class="nav-link" onclick="openTab('page-letter', this)">4 - Letter</span>
     </nav>
 
     <div class="page-container">
@@ -276,8 +288,8 @@
                     <p class="prompt-text">do you want to see your gift?</p>
                     
                     <div class="button-group">
-                        <button class="pill-btn" onclick="switchPage('page-gifts')">YES PLEASE</button>
-                        <button class="pill-btn" onclick="switchPage('page-no-option')">NO THANKS</button>
+                        <button class="pill-btn" onclick="openTab('page-gifts')">YES PLEASE</button>
+                        <button class="pill-btn" onclick="openTab('page-no-option')">NO THANKS</button>
                     </div>
                 </div>
 
@@ -290,7 +302,7 @@
             <div class="card-box">
                 <h2 class="section-title">Nice Try! 😼</h2>
                 <p class="custom-text">"No Thanks" bolne ka option yahan valid nahi hai! Aapko baaki saare tabs dekhne hi padenge.</p>
-                <button class="pill-btn" style="margin-top: 15px;" onclick="switchPage('page-gifts')">TAKE ME TO GIFTS ✨</button>
+                <button class="pill-btn" style="margin-top: 15px;" onclick="openTab('page-gifts')">TAKE ME TO GIFTS ✨</button>
             </div>
         </div>
 
@@ -301,7 +313,7 @@
                 <p class="custom-text"><strong>Dear Divyansha,</strong></p>
                 <p class="custom-text">Bday wish se pehle, main aapse dil se maafi maangna chahta hoon. Agar jaane-anjaane mein meri kisi baat, mere gusse ya kisi behavior se aapka dil dukha ho, toh please mujhe maaf kar dena. 🥀</p>
                 <p class="custom-text">Aapki smile mere liye bohot maayne rakhti hai. Isliye saare gile-shikwe bhool kar, aage badhte hain...</p>
-                <button class="pill-btn" onclick="switchPage('page-pictures')">NEXT: SEE PICTURES ➔</button>
+                <button class="pill-btn" onclick="openTab('page-pictures')">NEXT: SEE PICTURES ➔</button>
             </div>
         </div>
 
@@ -339,14 +351,19 @@
             </div>
         </div>
 
-        <!-- Page 6: Song (Updated with Ishq De Faniyar) -->
+        <!-- Page 6: Song (Working Audio Player) -->
         <div id="page-song" class="page">
             <div class="card-box">
                 <h2 class="section-title">Ishq De Faniyar 🎶</h2>
-                <p class="custom-text">A beautiful track dedicated to your special day ✨</p>
+                <p class="custom-text">Dedicated to Divyansha ✨ Click Play below to listen!</p>
                 
-                <div class="song-container">
-                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2fT2AOn27p9O5eJil1yW5g?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <div class="player-card">
+                    <p style="font-family: 'Mali', cursive; font-weight: bold; color: var(--accent-red);">🎵 Playing: Ishq De Faniyar</p>
+                    <audio controls>
+                        <source src="https://pagalworld.ink/files/download/id/3246" type="audio/mpeg">
+                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
                 </div>
             </div>
         </div>
@@ -367,20 +384,30 @@
     </div>
 
     <script>
-        function switchPage(pageId, navElement) {
-            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-            
-            const targetPage = document.getElementById(pageId);
-            if(targetPage) {
-                targetPage.classList.add('active');
+        function openTab(pageId, element) {
+            // Hide all pages
+            var pages = document.querySelectorAll('.page');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].classList.remove('active');
             }
 
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-            
-            if(navElement) {
-                navElement.classList.add('active');
+            // Show selected page
+            var selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+            }
+
+            // Update Active Nav Link
+            var navLinks = document.querySelectorAll('.nav-link');
+            for (var j = 0; j < navLinks.length; j++) {
+                navLinks[j].classList.remove('active');
+            }
+
+            if (element) {
+                element.classList.add('active');
             } else {
-                const navMap = {
+                // Find matching link index manually if clicked from buttons
+                var map = {
                     'page-greetings': 0,
                     'page-no-option': 1,
                     'page-gifts': 2,
@@ -389,8 +416,9 @@
                     'page-song': 5,
                     'page-letter': 6
                 };
-                const links = document.querySelectorAll('.nav-link');
-                if(links[navMap[pageId]]) links[navMap[pageId]].classList.add('active');
+                if (map[pageId] !== undefined) {
+                    navLinks[map[pageId]].classList.add('active');
+                }
             }
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
