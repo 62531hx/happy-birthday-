@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Divyansha 🤍 | 23 October</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-dark: #0b0306;
-            --card-bg: #180910;
-            --accent-crimson: #800f2f;
-            --accent-rose: #ff4d6d;
-            --text-gold: #f7d6d0;
-            --text-light: #f8f9fa;
+            --bg-dark: #070104;
+            --card-bg: #110609;
+            --accent-crimson: #a01438;
+            --accent-rose: #ff6080;
+            --text-gold: #f9e1dc;
+            --text-light: #fefefe;
+            --text-poetry: #f9f1f0;
         }
 
         * {
@@ -22,6 +23,8 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
@@ -51,7 +54,7 @@
 
         /* Navigation Bar */
         nav {
-            position: sticky;
+            position: fixed;
             top: 0;
             width: 100%;
             display: flex;
@@ -60,9 +63,11 @@
             gap: 10px;
             padding: 15px 10px;
             background: rgba(24, 9, 16, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 77, 109, 0.25);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 77, 109, 0.15);
             z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.6s ease;
         }
 
         .nav-btn {
@@ -72,10 +77,10 @@
             font-size: 0.85rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             cursor: pointer;
-            padding: 8px 18px;
-            border-radius: 20px;
+            padding: 8px 22px;
+            border-radius: 25px;
             transition: all 0.3s ease;
         }
 
@@ -86,12 +91,95 @@
             box-shadow: 0 0 12px rgba(255, 77, 109, 0.4);
         }
 
-        /* Page Layout & Animations */
+        /* Intro Screen */
+        #intro {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100vh;
+            background-color: var(--bg-dark);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            transition: opacity 1s ease, visibility 1s;
+        }
+
+        #intro h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-gold);
+            animation: textFocus 1.5s ease-out;
+            font-family: 'Cinzel', serif;
+            text-shadow: 0 0 20px var(--accent-crimson);
+        }
+
+        #intro p.sub {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-rose);
+            font-size: 1.1rem;
+            margin-top: 15px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        #intro .poetry-stanza {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--text-poetry);
+            max-width: 650px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            border-left: 2px solid var(--accent-crimson);
+            border-right: 2px solid var(--accent-crimson);
+            padding: 0 20px;
+        }
+
+        #intro .poetry-stanza div { margin-bottom: 6px; }
+
+        #intro .load-trigger {
+            margin-top: 40px;
+            background: linear-gradient(45deg, var(--accent-crimson), var(--accent-rose));
+            border: none;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 15px rgba(255, 77, 109, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes textFocus {
+            from { filter: blur(5px); opacity: 0; transform: translateY(-10px); }
+            to { filter: blur(0); opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 77, 109, 0.7); }
+            100% { transform: scale(1); }
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            margin-top: 80px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
         .page {
             display: none;
-            flex: 1;
             padding: 40px 20px;
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
             width: 100%;
             animation: fadeIn 0.4s ease-in-out;
@@ -109,33 +197,32 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        h1, h2 {
+        h2 {
             font-family: 'Cinzel', serif;
             color: var(--text-gold);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             letter-spacing: 1px;
+            font-size: 2rem;
+            text-shadow: 0 0 12px var(--accent-crimson);
         }
-
-        h1 { font-size: 2.5rem; text-shadow: 0 0 15px var(--accent-crimson); }
-        h2 { font-size: 1.8rem; }
 
         p { 
             color: #d0c0c7; 
-            line-height: 1.8; 
-            max-width: 650px; 
+            line-height: 1.9; 
+            max-width: 700px; 
             text-align: justify; 
             text-justify: inter-word; 
         }
 
-        /* General Card Box */
+        /* Card Container */
         .card-box {
             background: var(--card-bg);
             border: 1px solid rgba(255, 77, 109, 0.3);
-            padding: 30px;
-            border-radius: 18px;
-            max-width: 680px;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 750px;
             width: 100%;
-            box-shadow: 0 0 25px rgba(128, 15, 47, 0.35);
+            box-shadow: 0 0 30px rgba(128, 15, 47, 0.45);
             margin-top: 15px;
             text-align: left;
         }
@@ -143,15 +230,15 @@
         /* Salar & Imama Section */
         .salar-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
             width: 100%;
-            margin-top: 25px;
+            margin-top: 30px;
         }
 
         .salar-card {
             background: var(--card-bg);
-            border-radius: 15px;
+            border-radius: 18px;
             overflow: hidden;
             border: 1px solid rgba(255, 77, 109, 0.25);
             text-align: left;
@@ -159,48 +246,51 @@
         }
 
         .salar-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.25);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(255, 77, 109, 0.3);
         }
 
         .salar-card img {
             width: 100%;
-            height: 280px;
+            height: 340px;
             object-fit: cover;
+            display: block;
         }
 
         .salar-content {
-            padding: 18px;
+            padding: 20px;
         }
 
         .salar-content h3 {
             color: var(--accent-rose);
             font-family: 'Cinzel', serif;
-            margin-bottom: 8px;
-            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-size: 1.15rem;
         }
 
         .salar-content p {
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             font-style: italic;
-            color: #e0d0d7;
+            color: #f0e1e7;
             text-align: left;
+            line-height: 1.6;
+            font-family: 'Playfair Display', serif;
         }
 
-        /* Interactive Reasons Grid */
+        /* Interactive Grid */
         .reasons-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 15px;
             justify-content: center;
-            margin-top: 25px;
+            margin-top: 30px;
         }
 
         .reason-box {
             background: var(--card-bg);
             border: 1px solid var(--accent-crimson);
-            padding: 12px 22px;
-            border-radius: 25px;
+            padding: 14px 25px;
+            border-radius: 30px;
             color: var(--text-gold);
             cursor: pointer;
             transition: all 0.3s ease;
@@ -211,28 +301,54 @@
         .reason-box:hover {
             background: var(--accent-crimson);
             color: #fff;
-            transform: scale(1.04);
-            box-shadow: 0 0 15px var(--accent-rose);
+            transform: scale(1.05);
+            box-shadow: 0 0 18px var(--accent-rose);
+        }
+
+        /* Poetic Wish Styling */
+        .poetic-wish p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-poetry);
+            text-align: left;
+            max-width: 100%;
+            margin-bottom: 6px;
+        }
+
+        .special-quote {
+            text-align: center !important;
+            font-weight: 600;
+            color: var(--accent-rose) !important;
+            font-size: 1.15rem !important;
+            margin: 15px 0 !important;
+            font-family: 'Cinzel', serif !important;
+            font-style: normal !important;
+        }
+
+        .stanza {
+            margin-bottom: 20px;
         }
 
         /* Buttons */
         .btn {
-            margin-top: 25px;
-            padding: 14px 32px;
+            margin-top: 30px;
+            padding: 16px 36px;
             background: linear-gradient(45deg, var(--accent-crimson), var(--accent-rose));
             color: #fff;
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 0 15px rgba(255, 77, 109, 0.4);
+            box-shadow: 0 0 18px rgba(255, 77, 109, 0.5);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .btn:hover { 
             transform: scale(1.05);
-            box-shadow: 0 0 22px rgba(255, 77, 109, 0.6);
+            box-shadow: 0 0 25px rgba(255, 77, 109, 0.7);
         }
 
         hr {
@@ -242,140 +358,250 @@
             margin: 20px 0;
         }
 
+        /* Magic Celebration Overlay */
+        #magic-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(7, 1, 4, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 3000;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            padding: 20px;
+        }
+
+        #magic-overlay h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-rose);
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px var(--accent-crimson);
+        }
+
+        #magic-overlay p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--text-gold);
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
         @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.4rem; }
-            nav { gap: 6px; padding: 10px 5px; }
-            .nav-btn { font-size: 0.72rem; padding: 6px 10px; }
-            .card-box { padding: 20px; }
+            #intro h1 { font-size: 2.2rem; }
+            #intro p.sub { font-size: 0.95rem; }
+            #intro .poetry-stanza { font-size: 0.9rem; }
+            h2 { font-size: 1.6rem; }
+            nav { gap: 4px; padding: 10px 4px; }
+            .nav-btn { font-size: 0.7rem; padding: 6px 10px; letter-spacing: 0.8px; }
+            .card-box { padding: 22px; }
+            .poetic-wish p { font-size: 0.95rem; }
+            #magic-overlay h1 { font-size: 2.2rem; }
+            #magic-overlay p { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body onclick="spawnHeart(event)">
 
+    <!-- Intro Overlay -->
+    <div id="intro">
+        <h1>FOR DIVYANSHA 🤍</h1>
+        <p class="sub">23 October • A Star That Shines Unmatched</p>
+        <div class="poetry-stanza">
+            <div>In the silent velvet of a dark night,</div>
+            <div>You are the light that cuts through the grey.</div>
+            <div>An unexpected comet, warm and bright,</div>
+            <div>To lead my steps into a softer day.</div>
+            <br>
+            <div>A quiet rhythm, peaceful and whole,</div>
+            <div>A sanctuary found within the soul.</div>
+        </div>
+        <button class="load-trigger" onclick="endIntro()">Open Your World ✨</button>
+    </div>
+
     <!-- Navigation Bar -->
     <nav>
-        <button class="nav-btn active" onclick="showPage('apology', this)">Apology 🤍</button>
-        <button class="nav-btn" onclick="showPage('salar', this)">Salar & Imama 🥀</button>
-        <button class="nav-btn" onclick="showPage('distance', this)">Distance 🌙</button>
-        <button class="nav-btn" onclick="showPage('letter', this)">For You 💌</button>
+        <button class="nav-btn active" onclick="showPage('apology', this)">UNSPOTTED HARMONY 🖤</button>
+        <button class="nav-btn" onclick="showPage('salar', this)">FACED WITH US 🥀</button>
+        <button class="nav-btn" onclick="showPage('distance', this)">UNMATCHED STILL 🌙</button>
+        <button class="nav-btn" onclick="showPage('letter', this)">TO THE ONE 💌</button>
     </nav>
 
-    <!-- Page 1: Apology Letter -->
-    <div id="apology" class="page active">
-        <h2>A Little Apology First 🖤</h2>
-        <div class="card-box">
-            <p><strong>Dear Divyansha,</strong></p><br>
-            <p>Bday wish se pehle, main aapse dil se maafi maangna chahta hoon. Agar jaane-anjaane mein meri kisi baat, mere gusse ya kisi behavior se aapka dil dukha ho, toh please mujhe maaf kar dena.</p><br>
-            <p>Mera kabhi bhi irada aapko hurt karne ka nahi hota. Aap mere liye kitni special ho, shayad main shabdon mein bata nahi pata... Par aaj ke din main bilkul nahi chahta ki humare beech koi bhi shikayat ya doori ki ghamand rahe.</p><br>
-            <p>Aapki smile mere liye bohot maayne rakhti hai. Isliye saare gile-shikwe bhool kar, aage badhte hain... 🥀</p>
-        </div>
-    </div>
-
-    <!-- Page 2: Salar & Imama Aesthetics -->
-    <div id="salar" class="page">
-        <h2>Salar & Imama Vibe 🥀</h2>
-        <p style="text-align: center;">Faceless elegance, silent love, and deep connection—just like Salar Sikander & Imama Hashim.</p>
+    <!-- Main Content Container -->
+    <div class="main-content">
         
-        <div class="salar-grid">
-            <div class="salar-card">
-                <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80" alt="Faceless Aesthetic 1">
-                <div class="salar-content">
-                    <h3>"Salar's Devotion"</h3>
-                    <p>“Woh jo bina mange mil jaye, woh hoti hai naemat... aur tum meri wahi naemat ho, Divyansha.” 🖤</p>
+        <!-- Page 1: Apology Poetry -->
+        <div id="apology" class="page active">
+            <h2>A Pure Beginning 🖤</h2>
+            <div class="card-box">
+                <div class="poetic-wish">
+                    <p>Before the laughter and the birthday light,</p>
+                    <p>I wish to set all lingering shadows free.</p>
+                    <p>Let no dark corners dim your quiet sight,</p>
+                    <p>Just gentle peace, from you and me.</p>
                 </div>
+                <hr>
+                <p><strong>Dear Divyansha,</strong></p><br>
+                <p>Bday wish se pehle, main aapse dil se maafi maangna chahta hoon. Agar jaane-anjaane mein meri kisi baat, mere gusse ya kisi behavior se aapka dil dukha ho, toh please mujhe maaf kar dena.</p><br>
+                <p>Mera kabhi bhi irada aapko hurt karne ka nahi hota. Aap mere liye kitni special ho, shayad main shabdon mein bata nahi pata... Par aaj ke din main bilkul nahi chahta ki humare beech koi bhi shikayat ya doori ki ghamand rahe.</p><br>
+                <p>Aapki smile mere liye bohot maayne rakhti hai. Isliye saare gile-shikwe bhool kar, aage badhte hain... 🥀</p>
+            </div>
+        </div>
+
+        <!-- Page 2: Salar & Imama Aesthetic Vibe -->
+        <div id="salar" class="page">
+            <h2>Silent Vibe, Just Us 🥀</h2>
+            <div class="card-box">
+                <div class="poetic-wish" style="text-align: center;">
+                    <p style="text-align: center;">A love so deep it needs no loud display,</p>
+                    <p style="text-align: center;">Beyond the noise of what the world might say.</p>
+                    <p style="text-align: center;">A sacred comfort, quiet and divine,</p>
+                    <p style="text-align: center;">Where souls align without a spoken line.</p>
+                </div>
+            </div>
+            
+            <div class="salar-grid">
+                <div class="salar-card">
+                    <img src="image_0.png" alt="Synchronized Connection">
+                    <div class="salar-content">
+                        <h3>"Synchronized Vibe"</h3>
+                        <p>“Woh jo bina mange mil jaye, woh hoti hai naemat... aur tum meri wahi naemat ho, Divyansha.” Not dramatic, but a quiet certainty. 🖤</p>
+                    </div>
+                </div>
+
+                <div class="salar-card">
+                    <img src="image_1.png" alt="Quiet Glimpse">
+                    <div class="salar-content">
+                        <h3>"Quiet Glimpse"</h3>
+                        <p>“Kuch rishte khamoshi se bante hain, aur dil ke sabse kareeb reh jaate hain.” A hand held, a safe space... Just for us. 🥀</p>
+                    </div>
+                </div>
+
+                <div class="salar-card">
+                    <img src="image_2.png" alt="Cute Connection">
+                    <div class="salar-content">
+                        <h3>"Cute Connection"</h3>
+                        <p>“Salar ki tarah zidd nahi, bas ek khamosh duaa hai ki tum hamesha muskuraati raho.” And yes, sometimes you do have that dramatic aesthetic vibe! 😭 ✨</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 3: Distance & Feeling Poetry -->
+        <div id="page-distance" class="page">
+            <h2>UNMATCHED, BEYOND MILES 🌙</h2>
+            <div class="card-box">
+                <div class="poetic-wish">
+                    <p>My star that shines across the quiet night,</p>
+                    <p>No distance dims your golden, gentle glow.</p>
+                    <p>No matter where you are, you bring the light,</p>
+                    <p>The purest connection I could ever know.</p>
+                </div>
+                <hr>
+                <p>Aap mujhse door rehti hain, lekin is doori ne kabhi bhi mere feelings ko kam nahi kiya. Distance teaches us the real value of a person. Chahe hum roz na mil paayein, par har shaam aur har duaa mein aapka zikr hota hai.</p><br>
+                <p>Door hone ke bawajood, jab bhi aapka text aata hai ya aapki koi random baat yaad aati hai, aisa lagta hai jaise aap bilkul paas ho. Distance can keep two people apart physically, but never in thoughts. 🤍</p>
             </div>
 
-            <div class="salar-card">
-                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80" alt="Faceless Aesthetic 2">
-                <div class="salar-content">
-                    <h3>"Imama's Quiet Grace"</h3>
-                    <p>“Kuch rishte khamoshi se bante hain, aur dil ke sabse kareeb reh jaate hain.” 🥀</p>
-                </div>
+            <div class="reasons-grid">
+                <div class="reason-box" onclick="popHeart(event)">Tap to bridge the miles 💌</div>
+                <div class="reason-box" onclick="popHeart(event)">Pure respect, always with you 🖤</div>
+                <div class="reason-box" onclick="popHeart(event)">Always supporting your dreams ✨</div>
             </div>
+        </div>
 
-            <div class="salar-card">
-                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80" alt="Faceless Aesthetic 3">
-                <div class="salar-content">
-                    <h3>"Unspoken Connection"</h3>
-                    <p>“Salar ki tarah zidd nahi, bas ek khamosh duaa hai ki tum hamesha muskuraati raho.” ✨</p>
+        <!-- Page 4: Main Birthday Wish Poetry -->
+        <div id="letter" class="page">
+            <h2>TO THE UNMATCHED ONE 🤍</h2>
+            <div class="card-box poetic-wish">
+                <div class="stanza">
+                    <p><strong>23 October.</strong> A date so soft and rare,</p>
+                    <p>A beautiful pause in the flow of time.</p>
+                    <p>A singular moment when you were placed right there,</p>
+                    <p>An answered wish that feels like poetry in rhyme.</p>
                 </div>
+                <hr>
+
+                <div class="stanza">
+                    <p>They say ordinary is simple, predictable and plain,</p>
+                    <p>But you are a mystery, written with quiet grace.</p>
+                    <p>One moment soft sunshine, the next a sudden rain,</p>
+                    <p>Bringing warmth and wonder to every space.</p>
+                    <p class="special-quote">"Leave me alone." 😭 Or texts so deep... Unmatched in every mood.</p>
+                </div>
+                <hr>
+
+                <div class="stanza">
+                    <p>A text on my screen, or a story you share,</p>
+                    <p>These little moments quietly grow and intertwine.</p>
+                    <p>Your love for books, your Salar-vibe flair,</p>
+                    <p>All woven gently into this heart of mine.</p>
+                </div>
+                <hr>
+
+                <div class="stanza">
+                    <p>No cinematic lines, no dramatic screen display,</p>
+                    <p>No scripted words can capture what you mean.</p>
+                    <p>I am just genuinely thankful for this day,</p>
+                    <p>For the most beautiful connection I have seen.</p>
+                </div>
+                <hr>
+
+                <div class="stanza">
+                    <p>I wish you a year of peace that stays true,</p>
+                    <p>A happiness that lingers through every heavy night.</p>
+                    <p>I hope your dreams turn closer toward you,</p>
+                    <p>And your path is guided by pure, warm light.</p>
+                </div>
+                <hr>
+
+                <div class="stanza">
+                    <p>I hope you laugh until your heart feels free,</p>
+                    <p>I hope you gather memories that never grow old.</p>
+                    <p>And whenever life feels confusing as can be,</p>
+                    <p>Remember you can take your time as stories unfold.</p>
+                </div>
+                <hr>
+
+                <p class="special-quote stanza">HAPPY BIRTHDAY, DIVYANSHA. 🎂🤍</p>
+                
+                <div class="stanza">
+                    <p style="text-align: center !important;">Stay exactly as wonderfully, poetically you as you can be.</p>
+                    <p style="text-align: center !important;">Smile today—because someone spent time making this just to see you happy. 🤍</p>
+                </div>
+
+                <p style="text-align: right; color: var(--accent-rose); font-weight: bold; font-style: normal; font-family: 'Poppins', sans-serif !important;">— For Divyansha, on 23 October</p>
             </div>
+            <button class="btn" onclick="celebrate()">Click for Birthday Magic! 🥳🥀</button>
         </div>
     </div>
 
-    <!-- Page 3: Long Distance & Feelings -->
-    <div id="page-distance" class="page">
-        <h2>Miles Apart, Still Close 🌙</h2>
-        <div class="card-box">
-            <p style="text-align: center; font-style: italic; color: var(--accent-rose); font-size: 1.05rem; margin-bottom: 15px;">
-                "Doori sirf zameen ki hai, dil toh har waqt paas hi rehta hai..."
-            </p>
-            <p>Aap mujhse door rehti hain, lekin is doori ne kabhi bhi mere feelings ko kam nahi kiya. Distance teaches us the real value of a person. Chahe hum roz na mil paayein, par har shaam aur har duaa mein aapka zikr hota hai.</p><br>
-            <p>Door hone ke bawajood, jab bhi aapka text aata hai ya aapki koi random baat yaad aati hai, aisa lagta hai jaise aap bilkul paas ho. Distance can keep two people apart physically, but never in thoughts. 🤍</p>
-        </div>
-
-        <div class="reasons-grid">
-            <div class="reason-box" onclick="popHeart(event)">Tap to send love across miles 💌</div>
-            <div class="reason-box" onclick="popHeart(event)">Distance is temporary, respect is permanent 🖤</div>
-            <div class="reason-box" onclick="popHeart(event)">Always supporting your dreams ✨</div>
-        </div>
-    </div>
-
-    <!-- Page 4: Main Birthday Wish Letter -->
-    <div id="letter" class="page">
-        <h2>For Divyansha 🤍</h2>
-        <div class="card-box">
-            <p><strong>23 October.</strong></p><br>
-            <p>Aapke liye shayad ye bas ek aur birthday hai…</p>
-            <p>lekin mere liye, ye woh date hai jo mujhe yaad dilati hai ki kuch logon ka duniya mein hona apne aap mein ek beautiful thing hai.</p><br>
-            <p>So, today isn't going to be a boring<br>“Happy Birthday, stay blessed 🎂” message.</p>
-            <p>Aap usse thodi better wish deserve karti hain. :)</p><br>
-            <hr>
-
-            <p>Mujhe nahi pata ki aapko realize hota hai ya nahi, but you're actually a very interesting person.</p><br>
-            <p>Kabhi aap bilkul normal si baat kar rahi hoti hain…</p>
-            <p>kabhi ekdum random…</p>
-            <p>kabhi aapka mood hota hai baat karne ka…</p>
-            <p>aur kabhi simply: “leave me alone.” 😭</p><br>
-            <p>And honestly, that's one of the things I like about you.</p>
-            <p>Aapko hamesha ek hi way mein samajhna possible nahi hai. And maybe that's what makes knowing you interesting.</p><br>
-            <hr>
-
-            <p>Aapki kuch chhoti-chhoti baatein bhi yaad reh jaati hain.</p>
-            <p>Aapka way of texting. Aapki random reactions. Aapka books ko lekar interest. Aur haan… Salar Sikander wali aapki vibe bhi. 😭</p>
-            <p>Kabhi-kabhi aapki ek chhoti si baat bhi unnecessarily mere mind mein reh jaati hai. I don't know why. Maybe that's just what happens when someone quietly becomes important to you.</p><br>
-            <hr>
-
-            <p>Main aapse ye nahi kahunga ki “aap meri duniya hain” ya koi overdramatic movie dialogue sunaunga. Because honestly, aap usse zyada deserve karti hain.</p>
-            <p>Main bas itna kahunga— I'm genuinely happy that I got to know you. Aap meri life mein kaise aayi, ye shayad koi extraordinary story nahi thi. But somehow… you became a memorable part of it. And that's enough to make your birthday special for me too.</p><br>
-            <hr>
-
-            <p>Aaj main aapke liye ek wish karna chahta hoon.</p>
-            <p>I hope this new year of your life gives you the kind of happiness that doesn't disappear the moment a bad day comes.</p>
-            <p>I hope you meet people who understand you without constantly asking you to explain yourself.</p>
-            <p>I hope you get closer to everything you've dreamed about.</p>
-            <p>I hope you laugh a lot.</p>
-            <p>I hope you make memories you'll still smile about years from now.</p>
-            <p>And whenever life gets confusing… I hope you remember that you don't have to have everything figured out right now. You're allowed to take your time.</p><br>
-            <hr>
-
-            <p>And Divyansha…</p>
-            <p>I don't know what the future will look like. I don't know where we'll be a year from now. I don't even know whether we'll still be talking about the same random things and arguing over the same stupid stuff. 😭</p>
-            <p>But I do know one thing: I'm glad that somewhere in this huge world, our paths crossed. And if nothing else, I hope this little birthday surprise gives you one genuinely happy moment today.</p><br>
-            <hr>
-
-            <p>So here's to 23 October. To another year of you. Another year of your stories. Another year of your random moods. Another year of your dreams. Another year of becoming the person you're meant to be. And hopefully… a lot of beautiful memories waiting ahead.</p><br>
-            <p style="font-weight: bold; color: var(--text-gold); font-size: 1.1rem;">Happy Birthday, Divyansha. 🎂🤍</p><br>
-            <p>I hope when you close this website today, you don't just remember the words. I hope you remember that somewhere, someone took the time to make something just for you—because they thought you were worth it.</p><br>
-            <p>Stay exactly as wonderfully you as you can be. And please… smile today. You deserve that much. 🤍</p><br>
-            <p style="text-align: right; color: var(--accent-rose); font-weight: bold;">— For Divyansha, on 23 October</p>
-        </div>
-        <button class="btn" onclick="celebrate()">Click for Birthday Magic! 🥳🥀</button>
+    <!-- Celebration Modal -->
+    <div id="magic-overlay" onclick="closeMagic()">
+        <h1>✨ HAPPY BIRTHDAY DIVYANSHA ✨</h1>
+        <p>Wishing you a breathtaking day filled with peace, love, and light! 🎉🥀</p>
+        <p style="font-size: 0.9rem; color: var(--text-gold); margin-top: 20px; font-style: normal;">(Tap anywhere to close)</p>
     </div>
 
     <script>
-        // Smooth Navigation Logic
+        // Intro Screen Transition
+        function endIntro() {
+            const intro = document.getElementById('intro');
+            const nav = document.querySelector('nav');
+            const content = document.querySelector('.main-content');
+            
+            intro.style.opacity = '0';
+            setTimeout(() => {
+                intro.style.visibility = 'hidden';
+                nav.style.opacity = '1';
+                content.style.opacity = '1';
+                window.scrollTo(0, 0);
+            }, 1000);
+        }
+
+        // Navigation Switcher
         function showPage(pageId, btn) {
             document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -386,11 +612,11 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Screen Click Floating Hearts Animation
+        // Click Heart Generator
         function spawnHeart(e) {
             const heart = document.createElement('div');
             heart.classList.add('heart');
-            heart.innerHTML = '🖤';
+            heart.innerHTML = (Math.random() > 0.5) ? '🥀' : '🖤';
             heart.style.left = e.clientX + 'px';
             heart.style.top = e.clientY + 'px';
             document.body.appendChild(heart);
@@ -398,15 +624,15 @@
             setTimeout(() => heart.remove(), 4000);
         }
 
-        // Multiple Floating Hearts Effect
+        // Multi Heart Burst
         function popHeart(e) {
             e.stopPropagation();
-            for(let i = 0; i < 6; i++) {
+            for(let i = 0; i < 7; i++) {
                 const heart = document.createElement('div');
                 heart.classList.add('heart');
                 heart.innerHTML = '🥀';
-                heart.style.left = (e.clientX + (Math.random() * 50 - 25)) + 'px';
-                heart.style.top = (e.clientY + (Math.random() * 50 - 25)) + 'px';
+                heart.style.left = (e.clientX + (Math.random() * 60 - 30)) + 'px';
+                heart.style.top = (e.clientY + (Math.random() * 60 - 30)) + 'px';
                 document.body.appendChild(heart);
                 setTimeout(() => heart.remove(), 3500);
             }
@@ -414,7 +640,24 @@
 
         // Celebration Trigger
         function celebrate() {
-            alert("✨ Happy Birthday Divyansha! Wishing you a breathtaking day filled with peace, love, and laughter! 🎉🥀");
+            const overlay = document.getElementById('magic-overlay');
+            overlay.style.display = 'flex';
+            
+            for(let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '✨';
+                    heart.style.left = (Math.random() * window.innerWidth) + 'px';
+                    heart.style.top = (Math.random() * window.innerHeight) + 'px';
+                    document.body.appendChild(heart);
+                    setTimeout(() => heart.remove(), 3500);
+                }, i * 60);
+            }
+        }
+
+        function closeMagic() {
+            document.getElementById('magic-overlay').style.display = 'none';
         }
     </script> 
 </body>
