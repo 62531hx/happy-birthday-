@@ -173,9 +173,9 @@
             background: var(--card-bg);
             border: 2px solid var(--border-red);
             border-radius: 20px;
-            padding: 35px;
+            padding: 40px;
             width: 100%;
-            max-width: 750px;
+            max-width: 800px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.05);
             text-align: center;
             margin-top: 20px;
@@ -183,17 +183,17 @@
 
         .section-title {
             font-family: 'Caveat', cursive;
-            font-size: 3rem;
+            font-size: 3.2rem;
             color: var(--accent-red);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         p.custom-text {
             font-family: 'Mali', cursive;
-            line-height: 1.9;
-            color: #333;
+            line-height: 2;
+            color: #2c2c2c;
             font-size: 1.05rem;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
         /* Grid Layout */
@@ -234,23 +234,13 @@
             color: #555;
         }
 
-        /* Custom Audio Player Card */
-        .player-card {
-            background: #f1ebd9;
-            border: 2px dashed var(--accent-red);
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        audio {
-            width: 100%;
-            max-width: 500px;
-            outline: none;
+        .letter-divider {
+            margin: 25px auto;
+            width: 60%;
+            border: 0;
+            height: 1px;
+            background: var(--accent-red);
+            opacity: 0.4;
         }
 
         @media (max-width: 768px) {
@@ -258,6 +248,7 @@
             .hero-container { flex-direction: column; gap: 20px; }
             .flower-img { width: 120px; }
             .main-heading { font-size: 3.2rem; }
+            .card-box { padding: 25px; }
         }
     </style>
 </head>
@@ -270,8 +261,7 @@
         <span class="nav-link" onclick="openTab('page-gifts', this)">gifts</span>
         <span class="nav-link" onclick="openTab('page-pictures', this)">1 - Pictures</span>
         <span class="nav-link" onclick="openTab('page-flowers', this)">2 - Flowers</span>
-        <span class="nav-link" onclick="openTab('page-song', this)">3 - Song</span>
-        <span class="nav-link" onclick="openTab('page-letter', this)">4 - Letter</span>
+        <span class="nav-link" onclick="openTab('page-letter', this)">3 - Letter</span>
     </nav>
 
     <div class="page-container">
@@ -351,33 +341,34 @@
             </div>
         </div>
 
-        <!-- Page 6: Song (Working Audio Player) -->
-        <div id="page-song" class="page">
-            <div class="card-box">
-                <h2 class="section-title">Ishq De Faniyar 🎶</h2>
-                <p class="custom-text">Dedicated to Divyansha ✨ Click Play below to listen!</p>
-                
-                <div class="player-card">
-                    <p style="font-family: 'Mali', cursive; font-weight: bold; color: var(--accent-red);">🎵 Playing: Ishq De Faniyar</p>
-                    <audio controls>
-                        <source src="https://pagalworld.ink/files/download/id/3246" type="audio/mpeg">
-                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-            </div>
-        </div>
-
-        <!-- Page 7: Letter -->
+        <!-- Page 6: Deep Love Letter -->
         <div id="page-letter" class="page">
             <div class="card-box" style="text-align: left;">
-                <h2 class="section-title" style="text-align: center;">TO THE UNMATCHED ONE 🤍</h2>
-                <p class="custom-text"><strong>23 October.</strong> A date so soft and rare, a beautiful pause in the flow of time.</p>
-                <p class="custom-text">They say ordinary is simple, predictable and plain, but you are a mystery, written with quiet grace.</p>
-                <p class="custom-text">I wish you a year of peace that stays true, a happiness that lingers through every heavy night.</p>
-                <br>
-                <h3 style="font-family: 'Caveat', cursive; font-size: 2.2rem; color: var(--accent-red); text-align: center;">HAPPY BIRTHDAY, DIVYANSHA. 🎂🤍</h3>
-                <p class="custom-text" style="text-align: right; margin-top: 20px; font-weight: bold;">— On 23 October</p>
+                <h2 class="section-title" style="text-align: center; font-size: 3.5rem;">To My Dearest Divyansha 🤍</h2>
+                
+                <p class="custom-text"><strong>Dear Divyansha,</strong></p>
+                
+                <p class="custom-text">23 October... Yeh date mere liye bas ek calendar ka din nahi hai, balki ek aisa moments hai jab is duniya mein ek bohot hi khoobsurat, pyari aur masoom rooh aayi thi. Aaj ke din jab main tumhare baare mein sochta hoon, toh mere paas lafz kam pad jaate hain yeh batane ke liye ki tum mere liye kitni special ho.</p>
+
+                <p class="custom-text">Life mein bohot se log aate hain aur chale jaate hain, lekin tum wo insaan ho jo dil ke kisi aise kone mein bas chuki ho jahan se koi tumhari jagah nahi le sakta. Tumhari simplicity, tumhara bina bole sab samajhna, aur tumhari wo pyari si smile—yeh sab cheezein mere din ko roshan kar deti hain. Jab bhi mera mood off hota hai ya life thodi heavy lagti hai, tumhare baare mein ek khayal hi mere chehre par sukoon le aata hai.</p>
+
+                <hr class="letter-divider">
+
+                <p class="custom-text">Aaj tumhare birthday par main tumse ek promise karna chahta hoon—chahe kitne bhi saal guzar jaayein, chahe halaat kaise bhi ho, main hamesha tumhare sath khada rahungaa. Tumhare har dukh ko apna banane aur tumhari har khushi ko celebration banne ke liye main hamesha taiyar rahungaa.</p>
+
+                <p class="custom-text">Dua karta hoon ki yeh naya saal tumhari life mein dher saari kamyabi, sukoon aur sachhi khushiyaan lekar aaye. Tumhe kabhi kisi cheez ki kami na ho, aur tumhari aankhon mein hamesha wo chamak rahe jo mujhe sabse zyada pasand hai.</p>
+
+                <hr class="letter-divider">
+
+                <p class="custom-text" style="text-align: center; font-size: 1.15rem; font-weight: bold; color: var(--accent-red);">
+                    Happy Birthday, Divyansha! 🎂✨<br>
+                    Tum hamesha meri favorite rehongi.
+                </p>
+
+                <p class="custom-text" style="text-align: right; margin-top: 30px; font-weight: bold;">
+                    Always Yours,<br>
+                    <span style="font-family: 'Caveat', cursive; font-size: 2rem; color: var(--accent-red);">With All My Heart 🤍</span>
+                </p>
             </div>
         </div>
 
@@ -406,15 +397,13 @@
             if (element) {
                 element.classList.add('active');
             } else {
-                // Find matching link index manually if clicked from buttons
                 var map = {
                     'page-greetings': 0,
                     'page-no-option': 1,
                     'page-gifts': 2,
                     'page-pictures': 3,
                     'page-flowers': 4,
-                    'page-song': 5,
-                    'page-letter': 6
+                    'page-letter': 5
                 };
                 if (map[pageId] !== undefined) {
                     navLinks[map[pageId]].classList.add('active');
