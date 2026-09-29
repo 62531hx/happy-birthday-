@@ -6,76 +6,45 @@
     <title>For Divyansha 🤍 | 23 October</title>
     
     <!-- Google Fonts for cute typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Comfortaa:wght@400;700&family=Mali:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Comfortaa:wght@400;700&family=Dancing+Script:wght@700&family=Mali:wght@400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-cream: #f7f3e9;
-            --card-bg: #fffcf5;
-            --text-dark: #2b2b2b;
-            --accent-red: #8b0000;
-            --border-red: #8b0000;
-            --btn-bg: #eae3d2;
+            --color-pink: #ffd1dc;
+            --color-white: #fff;
+            --color-black: #333333;
+            --color-text-pink: #ff6b8b;
+            --color-bg-letter: #fff5f7;
+            --color-border: #ff8da1;
         }
 
         * {
-            margin: 0;
             padding: 0;
+            margin: 0;
             box-sizing: border-box;
         }
 
         body {
-            background-color: var(--bg-cream);
-            color: var(--text-dark);
-            font-family: 'Comfortaa', sans-serif;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
             position: relative;
-        }
-
-        /* Top Navigation Bar */
-        nav {
-            width: 100%;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 15px;
-            padding: 20px 40px;
-            font-family: 'Mali', cursive;
-            font-size: 0.95rem;
-            font-weight: 600;
-            background-color: var(--bg-cream);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-link {
-            color: var(--text-dark);
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s;
-            padding: 6px 12px;
-            border-radius: 8px;
-        }
-
-        .nav-link.active, .nav-link:hover {
-            color: var(--accent-red);
-            text-decoration: underline;
-            background-color: rgba(139, 0, 0, 0.05);
-        }
-
-        /* Page Management */
-        .page-container {
-            width: 100%;
-            max-width: 1000px;
+            font-family: 'Comfortaa', cursive, sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--color-pink), #ffc1cc, #ffe4e9);
             display: flex;
             justify-content: center;
+            align-items: center;
             padding: 20px;
+        }
+
+        /* Page Container & Multi-step Management */
+        .page-container {
+            width: 100%;
+            max-width: 850px;
+            position: relative;
             z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .page {
@@ -87,175 +56,194 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            animation: fadeIn 0.4s ease-in-out forwards;
+            animation: fadeIn 0.5s ease-in-out forwards;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
+            from { opacity: 0; transform: translateY(12px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero Page */
-        .hero-container {
+        /* Main Wrapper (Step 1 - Exact Screenshot Layout) */
+        .wrapper {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 107, 139, 0.2);
+            border: 3px dashed var(--color-border);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
-            margin-top: 20px;
+            padding: 40px;
         }
 
-        .flower-img {
-            width: 180px;
-            height: auto;
-            object-fit: contain;
+        /* Left Content */
+        .left-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
-        .center-content {
+        h1 {
+            font-size: 3.2rem;
+            color: var(--color-text-pink);
+            font-family: 'Dancing Script', cursive;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .date-badge {
+            background-color: var(--color-white);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            color: var(--color-black);
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            border: 2px solid var(--color-pink);
+            font-family: 'Mali', cursive;
+        }
+
+        .click-btn {
+            background-color: var(--color-text-pink);
+            color: var(--color-white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-family: 'Mali', cursive;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 139, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .click-btn:hover {
+            transform: scale(1.05);
+            background-color: #ff5277;
+        }
+
+        /* Right Content (Avatar Circle) */
+        .right-content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
         }
 
-        .cat-gif {
-            width: 100px;
-            height: auto;
-            margin-bottom: 10px;
+        .avatar-container {
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
-        }
-
-        .main-heading {
-            font-family: 'Caveat', cursive;
-            font-size: 4.5rem;
-            color: #111;
-            line-height: 1;
-        }
-
-        .sub-heading-exclamation {
-            font-family: 'Caveat', cursive;
-            font-size: 3.5rem;
-            color: var(--accent-red);
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .prompt-text {
-            font-family: 'Mali', cursive;
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        /* Pill Buttons */
-        .button-group {
+            border: 4px solid var(--color-white);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            overflow: hidden;
+            background-color: var(--color-white);
             display: flex;
-            gap: 15px;
+            justify-content: center;
+            align-items: center;
         }
 
-        .pill-btn {
-            background-color: var(--btn-bg);
-            border: 2px solid var(--border-red);
-            border-radius: 30px;
-            padding: 10px 30px;
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name-tag {
+            margin-top: 15px;
+            background-color: var(--color-text-pink);
+            color: var(--color-white);
+            padding: 6px 20px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(255, 107, 139, 0.3);
             font-family: 'Mali', cursive;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            color: #111;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        .pill-btn:hover {
-            background-color: var(--accent-red);
-            color: #fff;
-            transform: scale(1.05);
-        }
-
-        /* Card Styles */
+        /* Shared Card Box Layout for Subsequent Steps */
         .card-box {
-            background: var(--card-bg);
-            border: 2px solid var(--border-red);
+            background: var(--color-bg-letter);
+            border: 2px solid var(--color-border);
             border-radius: 20px;
             padding: 40px;
             width: 100%;
-            max-width: 800px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            text-align: center;
-            margin-top: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: left;
         }
 
         .section-title {
-            font-family: 'Caveat', cursive;
-            font-size: 3.2rem;
-            color: var(--accent-red);
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--color-text-pink);
             margin-bottom: 20px;
+            text-align: center;
         }
 
         p.custom-text {
             font-family: 'Mali', cursive;
-            line-height: 2;
-            color: #2c2c2c;
-            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--color-black);
+            font-size: 1rem;
             margin-bottom: 18px;
         }
 
-        /* Grid Layout */
+        /* Grid Layouts for Memories and Flowers */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
             width: 100%;
-            margin-top: 25px;
+            margin-bottom: 25px;
         }
 
         .grid-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-red);
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
             border-radius: 15px;
             overflow: hidden;
             padding: 15px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
         }
 
         .grid-card img {
             width: 100%;
-            height: 220px;
+            height: 180px;
             object-fit: cover;
             border-radius: 10px;
             margin-bottom: 10px;
         }
 
         .grid-card h3 {
-            font-family: 'Caveat', cursive;
-            font-size: 1.8rem;
-            color: var(--accent-red);
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--color-text-pink);
         }
 
         .grid-card p {
             font-family: 'Mali', cursive;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #555;
         }
 
         .letter-divider {
-            margin: 25px auto;
+            margin: 20px auto;
             width: 60%;
             border: 0;
             height: 1px;
-            background: var(--accent-red);
-            opacity: 0.4;
+            background: var(--color-border);
+            opacity: 0.5;
         }
 
-        /* Floating Hearts Animation */
+        /* Floating Hearts Animation Elements */
         .heart {
             position: absolute;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%238b0000"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff6b8b"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
             background-size: contain;
             animation: floatUp 4s linear infinite;
-            opacity: 0.6;
+            opacity: 0.7;
             z-index: 1;
         }
 
@@ -270,178 +258,144 @@
             }
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
-            nav { justify-content: center; flex-wrap: wrap; gap: 8px; padding: 10px; }
-            .hero-container { flex-direction: column; gap: 20px; }
-            .flower-img { width: 120px; }
-            .main-heading { font-size: 3.2rem; }
-            .card-box { padding: 25px; }
+            .wrapper {
+                flex-direction: column-reverse;
+                padding: 30px 20px;
+                text-align: center;
+            }
+            .left-content {
+                align-items: center;
+                margin-top: 20px;
+            }
+            .card-box {
+                padding: 25px 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Navigation Bar -->
-    <nav>
-        <span class="nav-link active" onclick="openTab('page-greetings', this)">Greetings</span>
-        <span class="nav-link" onclick="openTab('page-no-option', this)">No Option</span>
-        <span class="nav-link" onclick="openTab('page-gifts', this)">gifts</span>
-        <span class="nav-link" onclick="openTab('page-pictures', this)">1 - Pictures</span>
-        <span class="nav-link" onclick="openTab('page-flowers', this)">2 - Flowers</span>
-        <span class="nav-link" onclick="openTab('page-letter', this)">3 - Letter</span>
-    </nav>
-
     <div class="page-container">
 
-        <!-- Page 1: Greetings -->
-        <div id="page-greetings" class="page active">
-            <div class="hero-container">
-                <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=400&q=80" alt="Flower Left" class="flower-img">
+        <!-- Step 1: Main Landing Screen (Exact Screenshot Style) -->
+        <div id="page-landing" class="page active">
+            <div class="wrapper">
+                <div class="left-content">
+                    <h1>Happy Birthday</h1>
+                    <div class="date-badge">23 October</div>
+                    <button class="click-btn" onclick="openTab('page-apology')">Click here ✨</button>
+                </div>
+                <div class="right-content">
+                    <div class="avatar-container">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop" alt="Divyansha">
+                    </div>
+                    <div class="name-tag">Divyansha 🤍</div>
+                </div>
+            </div>
+        </div>
 
-                <div class="center-content">
-                    <img src="https://media.giphy.com/media/LndvD5Wv03xL1vL7jP/giphy.gif" alt="Cute Cat" class="cat-gif">
-                    <h1 class="main-heading">Hello there</h1>
-                    <div class="sub-heading-exclamation">-!</div>
-                    <p class="prompt-text">do you want to see your gift?</p>
-                    
-                    <div class="button-group">
-                        <button class="pill-btn" onclick="openTab('page-gifts', document.querySelectorAll('.nav-link')[2])">YES PLEASE</button>
-                        <button class="pill-btn" onclick="openTab('page-no-option', document.querySelectorAll('.nav-link')[1])">NO THANKS</button>
+        <!-- Step 2: Apology & Warm-up Section -->
+        <div id="page-apology" class="page">
+            <div class="card-box">
+                <h2 class="section-title">Before We Celebrate... 🤍</h2>
+                <p class="custom-text"><strong>Dearest Divyansha,</strong></p>
+                <p class="custom-text">Is khoobsurat din ki shuruat karne se pehle, main dil se maafi maangna chahta hoon. Agar jaane-anjaane mein meri kisi baat ya harkat se aapka dil dukha ho, toh please mujhe maaf kar dena. 🥀</p>
+                <p class="custom-text">Aapki ek smile mere liye sabse zyada maayne rakhti hai. Chalo saare gile-shikwe door karke is din ko special banate hain...</p>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="click-btn" onclick="openTab('page-memories')">NEXT: OUR MEMORIES ➔</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Memories & Aesthetic Vibe -->
+        <div id="page-memories" class="page">
+            <div class="card-box">
+                <h2 class="section-title">Special Moments 📸</h2>
+                <div class="grid-container">
+                    <div class="grid-card">
+                        <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=600&q=80" alt="Soft Comfort">
+                        <h3>Soft Comfort</h3>
+                        <p>Just like a quiet evening, bringing peace to a heavy heart. 🐾</p>
+                    </div>
+                    <div class="grid-card">
+                        <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80" alt="Unspoken Connection">
+                        <h3>Unspoken Connection</h3>
+                        <p>No explanations needed—just two souls sharing the same quiet wavelength. 🖤</p>
                     </div>
                 </div>
-
-                <img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=400&q=80" alt="Flower Right" class="flower-img">
+                <div style="text-align: center;">
+                    <button class="click-btn" onclick="openTab('page-flowers')">NEXT: FLOWERS FOR YOU ➔</button>
+                </div>
             </div>
         </div>
 
-        <!-- Page 2: No Option -->
-        <div id="page-no-option" class="page">
+        <!-- Step 4: Flowers Section -->
+        <div id="page-flowers" class="page">
             <div class="card-box">
-                <h2 class="section-title">Nice Try! 😼</h2>
-                <p class="custom-text">"No Thanks" bolne ka option yahan valid nahi hai! Aapko baaki saare tabs dekhne hi padenge.</p>
-                <button class="pill-btn" style="margin-top: 15px;" onclick="openTab('page-gifts', document.querySelectorAll('.nav-link')[2])">TAKE ME TO GIFTS ✨</button>
+                <h2 class="section-title">Flowers That Never Fade 🌺</h2>
+                <div class="grid-container">
+                    <div class="grid-card">
+                        <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80" alt="Crimson Rose">
+                        <h3>Crimson Roses</h3>
+                        <p>A symbol of quiet grace and unconditional respect.</p>
+                    </div>
+                    <div class="grid-card">
+                        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80" alt="Shadow Petals">
+                        <h3>Shadow Petals</h3>
+                        <p>“Kuch rishte khamoshi se bante hain, aur dil ke sabse kareeb reh jaate hain.” 🥀</p>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <button class="click-btn" onclick="openTab('page-letter')">FINAL STEP: READ LETTER ➔</button>
+                </div>
             </div>
         </div>
 
-        <!-- Page 3: Gifts -->
-        <div id="page-gifts" class="page">
-            <div class="card-box">
-                <h2 class="section-title">Unspotted Harmony 🖤</h2>
-                <p class="custom-text"><strong>Dear Divyansha,[cite: 15]</strong></p>
-                <p class="custom-text">Bday wish se pehle, main aapse dil se maafi maangna chahta hoon. Agar jaane-anjaane mein meri kisi baat, mere gusse ya kisi behavior se aapka dil dukha ho, toh please mujhe maaf kar dena. 🥀[cite: 15]</p>
-                <p class="custom-text">Aapki smile mere liye bohot maayne rakhti hai. Isliye saare gile-shikwe bhool kar, aage badhte hain...[cite: 15]</p>
-                <button class="pill-btn" style="margin-top: 15px;" onclick="openTab('page-pictures', document.querySelectorAll('.nav-link')[3])">NEXT: SEE PICTURES ➔</button>
-            </div>
-        </div>
-
-        <!-- Page 4: Pictures -->
-        <div id="page-pictures" class="page" style="align-items: center;">
-            <h2 class="section-title">Memories & Aesthetic Vibe 📸[cite: 15]</h2>
-            <div class="grid-container">
-                <div class="grid-card">
-                    <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=600&q=80" alt="Cat Comfort">
-                    <h3>Soft Comfort</h3>
-                    <p>Just like a quiet evening, bringing peace to a heavy heart. 🐾[cite: 15]</p>
-                </div>
-                <div class="grid-card">
-                    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80" alt="Unspoken Connection">
-                    <h3>Unspoken Connection</h3>
-                    <p>No explanations needed—just two souls sharing the same quiet wavelength. 🖤[cite: 15]</p>
-                </div>
-            </div>
-            <div style="margin-top: 30px; text-align: center;">
-                <button class="pill-btn" onclick="openTab('page-flowers', document.querySelectorAll('.nav-link')[4])">NEXT: FLOWERS ➔</button>
-            </div>
-        </div>
-
-        <!-- Page 5: Flowers -->
-        <div id="page-flowers" class="page" style="align-items: center;">
-            <h2 class="section-title">Flowers That Never Fade 🌺[cite: 15]</h2>
-            <div class="grid-container">
-                <div class="grid-card">
-                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80" alt="Crimson Rose">
-                    <h3>Crimson Roses</h3>
-                    <p>A symbol of quiet grace and unconditional respect.[cite: 15]</p>
-                </div>
-                <div class="grid-card">
-                    <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80" alt="Shadow Petals">
-                    <h3>Shadow Petals</h3>
-                    <p>“Kuch rishte khamoshi se bante hain, aur dil ke sabse kareeb reh jaate hain.” 🥀[cite: 15]</p>
-                </div>
-            </div>
-            <div style="margin-top: 30px; text-align: center;">
-                <button class="pill-btn" onclick="openTab('page-letter', document.querySelectorAll('.nav-link')[5])">NEXT: READ LETTER ➔</button>
-            </div>
-        </div>
-
-        <!-- Page 6: Deep Love Letter -->
+        <!-- Step 5: Deep Love Letter & Proposal -->
         <div id="page-letter" class="page">
-            <div class="card-box" style="text-align: left;">
-                <h2 class="section-title" style="text-align: center; font-size: 3.5rem;">To My Dearest Divyansha 🤍[cite: 15]</h2>
+            <div class="card-box">
+                <h2 class="section-title">To My Dearest Divyansha ❤️</h2>
                 
-                <p class="custom-text"><strong>Dear Divyansha,[cite: 15]</strong></p>
-                
-                <p class="custom-text">23 October... Yeh date mere liye bas ek calendar ka din nahi hai, balki ek aisa moments hai jab is duniya mein ek bohot hi khoobsurat, pyari aur masoom rooh aayi thi. Aaj ke din jab main tumhare baare mein sochta hoon, toh mere paas lafz kam pad jaate hain yeh batane ke liye ki tum mere liye kitni special ho.[cite: 15]</p>
+                <p class="custom-text">23 October... Yeh date mere liye bas ek calendar ka din nahi hai, balki ek aisa moment hai jab is duniya mein ek bohot hi khoobsurat aur pyari rooh aayi thi. Aaj ke din jab main tumhare baare mein sochta hoon, toh mere paas lafz kam pad jaate hain yeh batane ke liye ki tum mere liye kitni special ho.</p>
 
-                <p class="custom-text">Life mein bohot se log aate hain aur chale jaate hain, lekin tum wo insaan ho jo dil ke kisi aise kone mein bas chuki ho jahan se koi tumhari jagah nahi le sakta. Tumhari simplicity, tumhara bina bole sab samajhna, aur tumhari wo pyari si smile—yeh sab cheezein mere din ko roshan kar deti hain. Jab bhi mera mood off hota hai ya life thodi heavy lagti hai, tumhare baare mein ek khayal hi mere chehre par sukoon le aata hai.[cite: 15]</p>
+                <p class="custom-text">Life mein bohot se log aate hain aur chale jaate hain, lekin tum wo insaan ho jo dil ke kisi aise kone mein bas chuki ho jahan se koi tumhari jagah nahi le sakta. Tumhari simplicity, tumhara bina bole sab samajhna, aur tumhari pyari si smile—yeh sab mere din ko roshan kar deti hain.</p>
 
                 <hr class="letter-divider">
 
-                <p class="custom-text">Aaj tumhare birthday par main tumse ek promise karna chahta hoon—chahe kitne bhi saal guzar jaayein, chahe halaat kaise bhi ho, main hamesha tumhare sath khada rahungaa. Tumhare har dukh ko apna banane aur tumhari har khushi ko celebration banne ke liye main hamesha taiyar rahungaa.[cite: 15]</p>
+                <p class="custom-text">Aaj tumhare is khaas din par main tumse ek promise karna chahta hoon—chahe kitne bhi saal guzar jaayein, chahe halaat kaise bhi ho, main hamesha tumhare sath khada rahungaa. Tumhare har dukh ko apna banane aur tumhari har khushi ko celebration banane ke liye hamesha taiyar rahungaa.</p>
 
-                <p class="custom-text">Dua karta hoon ki yeh naya saal tumhari life mein dher saari kamyabi, sukoon aur sachhi khushiyaan lekar aaye. Tumhe kabhi kisi cheez ki kami na ho, aur tumhari aankhon mein hamesha wo chamak rahe jo mujhe sabse zyada pasand hai.[cite: 15]</p>
-
-                <hr class="letter-divider">
-
-                <p class="custom-text" style="text-align: center; font-size: 1.15rem; font-weight: bold; color: var(--accent-red);">
-                    Happy Birthday, Divyansha! 🎂✨<br>
-                    Tum hamesha meri favorite rehongi.[cite: 15]
+                <p class="custom-text" style="text-align: center; font-weight: bold; color: var(--color-text-pink); font-size: 1.1rem; margin-top: 15px;">
+                    Wishing you a day filled with happiness and a year filled with joy. May all your dreams and wishes come true today and always! ✨
                 </p>
 
-                <p class="custom-text" style="text-align: right; margin-top: 30px; font-weight: bold;">
+                <hr class="letter-divider">
+
+                <p class="custom-text" style="text-align: right; margin-top: 20px; font-weight: bold;">
                     Always Yours,<br>
-                    <span style="font-family: 'Caveat', cursive; font-size: 2rem; color: var(--accent-red);">With All My Heart 🤍</span>
+                    <span style="font-family: 'Dancing Script', cursive; font-size: 2rem; color: var(--color-text-pink);">With All My Heart 🤍</span>
                 </p>
+
+                <div style="text-align: center; margin-top: 25px;">
+                    <button class="click-btn" onclick="openTab('page-landing')">🔄 RESTART SURPRISE</button>
+                </div>
             </div>
         </div>
 
     </div>
 
-    <!-- JavaScript for Tab Switching and Floating Hearts -->
+    <!-- JavaScript for Multi-step Navigation and Floating Hearts -->
     <script>
-        function openTab(pageId, element) {
-            // Hide all pages
+        function openTab(pageId) {
             var pages = document.querySelectorAll('.page');
             for (var i = 0; i < pages.length; i++) {
                 pages[i].classList.remove('active');
             }
 
-            // Show selected page
             var selectedPage = document.getElementById(pageId);
             if (selectedPage) {
                 selectedPage.classList.add('active');
-            }
-
-            // Update Active Nav Link
-            var navLinks = document.querySelectorAll('.nav-link');
-            for (var j = 0; j < navLinks.length; j++) {
-                navLinks[j].classList.remove('active');
-            }
-
-            if (element) {
-                element.classList.add('active');
-            } else {
-                var map = {
-                    'page-greetings': 0,
-                    'page-no-option': 1,
-                    'page-gifts': 2,
-                    'page-pictures': 3,
-                    'page-flowers': 4,
-                    'page-letter': 5
-                };
-                if (map[pageId] !== undefined) {
-                    navLinks[map[pageId]].classList.add('active');
-                }
             }
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -467,7 +421,7 @@
             }, duration * 1000);
         }
 
-        setInterval(createHeart, 350);
+        setInterval(createHeart, 300);
     </script>
 </body>
 </html>
