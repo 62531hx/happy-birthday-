@@ -3,415 +3,347 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Divyansha 🤍 | 23 October</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Mali:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    
+    <title>Happy Birthday!</title>
+    <!-- Google Fonts for cute typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-cream: #f7f3e9;
-            --card-bg: #fffcf5;
-            --text-dark: #2b2b2b;
-            --accent-red: #8b0000;
-            --border-red: #8b0000;
-            --btn-bg: #eae3d2;
+            --color-pink: #ffd1dc;
+            --color-white: #fff;
+            --color-black: #333333;
+            --color-text-pink: #ff6b8b;
+            --color-bg-letter: #fff5f7;
+            --color-border: #ff8da1;
         }
 
         * {
-            margin: 0;
             padding: 0;
+            margin: 0;
             box-sizing: border-box;
         }
 
         body {
-            background-color: var(--bg-cream);
-            color: var(--text-dark);
-            font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
-        }
-
-        /* Top Navigation Bar */
-        nav {
-            width: 100%;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 15px;
-            padding: 20px 40px;
-            font-family: 'Mali', cursive;
-            font-size: 0.95rem;
-            font-weight: 600;
-            background-color: var(--bg-cream);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-link {
-            color: var(--text-dark);
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s;
-            padding: 6px 12px;
-            border-radius: 8px;
-        }
-
-        .nav-link.active, .nav-link:hover {
-            color: var(--accent-red);
-            text-decoration: underline;
-            background-color: rgba(139, 0, 0, 0.05);
-        }
-
-        /* Page Management */
-        .page-container {
-            width: 100%;
-            max-width: 1000px;
+            height: 100vh;
+            position: relative;
+            font-family: 'Comfortaa', cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--color-pink), #ffc1cc, #ffe4e9);
             display: flex;
             justify-content: center;
-            padding: 20px;
-        }
-
-        .page {
-            display: none;
-            width: 100%;
-        }
-
-        .page.active {
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            animation: fadeIn 0.4s ease-in-out forwards;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Hero Page */
-        .hero-container {
+        /* Background grid/pattern vibe */
+        .wrapper {
+            position: relative;
+            width: 90%;
+            max-width: 850px;
+            height: 480px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 107, 139, 0.2);
+            border: 3px dashed var(--color-border);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
-            margin-top: 20px;
+            padding: 40px;
+            z-index: 10;
         }
 
-        .flower-img {
-            width: 180px;
-            height: auto;
-            object-fit: contain;
+        /* Left Content */
+        .left-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
-        .center-content {
+        h1 {
+            font-size: 3.2rem;
+            color: var(--color-text-pink);
+            font-family: 'Dancing Script', cursive;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .date-badge {
+            background-color: var(--color-white);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            color: var(--color-black);
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            border: 2px solid var(--color-pink);
+        }
+
+        .click-btn {
+            background-color: var(--color-text-pink);
+            color: var(--color-white);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 139, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .click-btn:hover {
+            transform: scale(1.05);
+            background-color: #ff5277;
+        }
+
+        /* Right Content (Avatar Circle) */
+        .right-content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
         }
 
-        .cat-gif {
-            width: 100px;
-            height: auto;
-            margin-bottom: 10px;
-        }
-
-        .main-heading {
-            font-family: 'Caveat', cursive;
-            font-size: 4.5rem;
-            color: #111;
-            line-height: 1;
-        }
-
-        .sub-heading-exclamation {
-            font-family: 'Caveat', cursive;
-            font-size: 3.5rem;
-            color: var(--accent-red);
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .prompt-text {
-            font-family: 'Mali', cursive;
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        /* Pill Buttons */
-        .button-group {
-            display: flex;
-            gap: 15px;
-        }
-
-        .pill-btn {
-            background-color: var(--btn-bg);
-            border: 2px solid var(--border-red);
-            border-radius: 30px;
-            padding: 10px 30px;
-            font-family: 'Mali', cursive;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            color: #111;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .pill-btn:hover {
-            background-color: var(--accent-red);
-            color: #fff;
-            transform: scale(1.05);
-        }
-
-        /* Card Styles */
-        .card-box {
-            background: var(--card-bg);
-            border: 2px solid var(--border-red);
-            border-radius: 20px;
-            padding: 40px;
-            width: 100%;
-            max-width: 800px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .section-title {
-            font-family: 'Caveat', cursive;
-            font-size: 3.2rem;
-            color: var(--accent-red);
-            margin-bottom: 20px;
-        }
-
-        p.custom-text {
-            font-family: 'Mali', cursive;
-            line-height: 2;
-            color: #2c2c2c;
-            font-size: 1.05rem;
-            margin-bottom: 18px;
-        }
-
-        /* Grid Layout */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            width: 100%;
-            margin-top: 25px;
-        }
-
-        .grid-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-red);
-            border-radius: 15px;
-            overflow: hidden;
-            padding: 15px;
-            text-align: center;
-        }
-
-        .grid-card img {
-            width: 100%;
+        .avatar-container {
+            width: 220px;
             height: 220px;
+            border-radius: 50%;
+            border: 4px solid var(--color-white);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            overflow: hidden;
+            background-color: var(--color-white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+        }
+
+        .name-tag {
+            margin-top: 15px;
+            background-color: var(--color-text-pink);
+            color: var(--color-white);
+            padding: 6px 20px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(255, 107, 139, 0.3);
+        }
+
+        /* Floating Hearts Animation Elements */
+        .heart {
+            position: absolute;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff6b8b"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
+            background-size: contain;
+            animation: floatUp 4s linear infinite;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.6);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Pop-up Letter Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .letter-card {
+            width: 90%;
+            max-width: 600px;
+            background: var(--color-bg-letter);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border: 2px solid var(--color-border);
+            display: flex;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .letter-card {
+            transform: scale(1);
+        }
+
+        .letter-left {
+            flex: 1;
+            background: var(--color-pink);
             border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            border: 2px dashed var(--color-white);
+        }
+
+        .letter-left img {
+            max-width: 100%;
+            max-height: 180px;
+            border-radius: 8px;
+        }
+
+        .letter-right {
+            flex: 1.2;
+            padding-left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .letter-right h3 {
+            color: var(--color-text-pink);
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
             margin-bottom: 10px;
         }
 
-        .grid-card h3 {
-            font-family: 'Caveat', cursive;
-            font-size: 1.8rem;
-            color: var(--accent-red);
-        }
-
-        .grid-card p {
-            font-family: 'Mali', cursive;
+        .letter-right p {
             font-size: 0.9rem;
-            color: #555;
+            color: var(--color-black);
+            line-height: 1.6;
         }
 
-        .letter-divider {
-            margin: 25px auto;
-            width: 60%;
-            border: 0;
-            height: 1px;
-            background: var(--accent-red);
-            opacity: 0.4;
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-text-pink);
+            cursor: pointer;
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
-            nav { justify-content: center; flex-wrap: wrap; gap: 8px; padding: 10px; }
-            .hero-container { flex-direction: column; gap: 20px; }
-            .flower-img { width: 120px; }
-            .main-heading { font-size: 3.2rem; }
-            .card-box { padding: 25px; }
+            .wrapper {
+                flex-direction: column-reverse;
+                height: auto;
+                padding: 30px 20px;
+                text-align: center;
+            }
+            .left-content {
+                align-items: center;
+                margin-top: 20px;
+            }
+            .letter-card {
+                flex-direction: column;
+            }
+            .letter-right {
+                padding-left: 0;
+                margin-top: 15px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Navigation Bar -->
-    <nav>
-        <span class="nav-link active" onclick="openTab('page-greetings', this)">Greetings</span>
-        <span class="nav-link" onclick="openTab('page-no-option', this)">No Option</span>
-        <span class="nav-link" onclick="openTab('page-gifts', this)">gifts</span>
-        <span class="nav-link" onclick="openTab('page-pictures', this)">1 - Pictures</span>
-        <span class="nav-link" onclick="openTab('page-flowers', this)">2 - Flowers</span>
-        <span class="nav-link" onclick="openTab('page-letter', this)">3 - Letter</span>
-    </nav>
-
-    <div class="page-container">
-
-        <!-- Page 1: Greetings -->
-        <div id="page-greetings" class="page active">
-            <div class="hero-container">
-                <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=400&q=80" alt="Flower Left" class="flower-img">
-
-                <div class="center-content">
-                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHM3ZnNidmhhZHdyM3Uwc3hjcGF4Z29ocGFzcHRudG84eWFpczI0OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Lq0h93752f6J9tijrh/giphy.gif" alt="Cute Cat" class="cat-gif">
-                    <h1 class="main-heading">Hello there</h1>
-                    <div class="sub-heading-exclamation">-!</div>
-                    <p class="prompt-text">do you want to see your gift?</p>
-                    
-                    <div class="button-group">
-                        <button class="pill-btn" onclick="openTab('page-gifts')">YES PLEASE</button>
-                        <button class="pill-btn" onclick="openTab('page-no-option')">NO THANKS</button>
-                    </div>
-                </div>
-
-                <img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=400&q=80" alt="Flower Right" class="flower-img">
-            </div>
+    <!-- Main Card Screen -->
+    <div class="wrapper">
+        <div class="left-content">
+            <h1>Happy Birthday</h1>
+            <div class="date-badge">23 May 2005</div>
+            <button class="click-btn" id="openCardBtn">Click here</button>
         </div>
-
-        <!-- Page 2: No Option -->
-        <div id="page-no-option" class="page">
-            <div class="card-box">
-                <h2 class="section-title">Nice Try! 😼</h2>
-                <p class="custom-text">"No Thanks" bolne ka option yahan valid nahi hai! Aapko baaki saare tabs dekhne hi padenge.</p>
-                <button class="pill-btn" style="margin-top: 15px;" onclick="openTab('page-gifts')">TAKE ME TO GIFTS ✨</button>
+        <div class="right-content">
+            <div class="avatar-container">
+                <!-- Replace with your preferred image URL or local file name -->
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop" alt="Birthday Person">
             </div>
+            <div class="name-tag">Hayati!</div>
         </div>
-
-        <!-- Page 3: Gifts -->
-        <div id="page-gifts" class="page">
-            <div class="card-box">
-                <h2 class="section-title">Unspotted Harmony 🖤</h2>
-                <p class="custom-text"><strong>Dear Divyansha,</strong></p>
-                <p class="custom-text">Bday wish se pehle, main aapse dil se maafi maangna chahta hoon. Agar jaane-anjaane mein meri kisi baat, mere gusse ya kisi behavior se aapka dil dukha ho, toh please mujhe maaf kar dena. 🥀</p>
-                <p class="custom-text">Aapki smile mere liye bohot maayne rakhti hai. Isliye saare gile-shikwe bhool kar, aage badhte hain...</p>
-                <button class="pill-btn" onclick="openTab('page-pictures')">NEXT: SEE PICTURES ➔</button>
-            </div>
-        </div>
-
-        <!-- Page 4: Pictures -->
-        <div id="page-pictures" class="page">
-            <h2 class="section-title">Memories & Aesthetic Vibe 📸</h2>
-            <div class="grid-container">
-                <div class="grid-card">
-                    <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=600&q=80" alt="Cat Comfort">
-                    <h3>Soft Comfort</h3>
-                    <p>Just like a quiet evening, bringing peace to a heavy heart. 🐾</p>
-                </div>
-                <div class="grid-card">
-                    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80" alt="Unspoken Connection">
-                    <h3>Unspoken Connection</h3>
-                    <p>No explanations needed—just two souls sharing the same quiet wavelength. 🖤</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Page 5: Flowers -->
-        <div id="page-flowers" class="page">
-            <h2 class="section-title">Flowers That Never Fade 🌺</h2>
-            <div class="grid-container">
-                <div class="grid-card">
-                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80" alt="Crimson Rose">
-                    <h3>Crimson Roses</h3>
-                    <p>A symbol of quiet grace and unconditional respect.</p>
-                </div>
-                <div class="grid-card">
-                    <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80" alt="Shadow Petals">
-                    <h3>Shadow Petals</h3>
-                    <p>“Kuch rishte khamoshi se bante hain, aur dil ke sabse kareeb reh jaate hain.” 🥀</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Page 6: Deep Love Letter -->
-        <div id="page-letter" class="page">
-            <div class="card-box" style="text-align: left;">
-                <h2 class="section-title" style="text-align: center; font-size: 3.5rem;">To My Dearest Divyansha 🤍</h2>
-                
-                <p class="custom-text"><strong>Dear Divyansha,</strong></p>
-                
-                <p class="custom-text">23 October... Yeh date mere liye bas ek calendar ka din nahi hai, balki ek aisa moments hai jab is duniya mein ek bohot hi khoobsurat, pyari aur masoom rooh aayi thi. Aaj ke din jab main tumhare baare mein sochta hoon, toh mere paas lafz kam pad jaate hain yeh batane ke liye ki tum mere liye kitni special ho.</p>
-
-                <p class="custom-text">Life mein bohot se log aate hain aur chale jaate hain, lekin tum wo insaan ho jo dil ke kisi aise kone mein bas chuki ho jahan se koi tumhari jagah nahi le sakta. Tumhari simplicity, tumhara bina bole sab samajhna, aur tumhari wo pyari si smile—yeh sab cheezein mere din ko roshan kar deti hain. Jab bhi mera mood off hota hai ya life thodi heavy lagti hai, tumhare baare mein ek khayal hi mere chehre par sukoon le aata hai.</p>
-
-                <hr class="letter-divider">
-
-                <p class="custom-text">Aaj tumhare birthday par main tumse ek promise karna chahta hoon—chahe kitne bhi saal guzar jaayein, chahe halaat kaise bhi ho, main hamesha tumhare sath khada rahungaa. Tumhare har dukh ko apna banane aur tumhari har khushi ko celebration banne ke liye main hamesha taiyar rahungaa.</p>
-
-                <p class="custom-text">Dua karta hoon ki yeh naya saal tumhari life mein dher saari kamyabi, sukoon aur sachhi khushiyaan lekar aaye. Tumhe kabhi kisi cheez ki kami na ho, aur tumhari aankhon mein hamesha wo chamak rahe jo mujhe sabse zyada pasand hai.</p>
-
-                <hr class="letter-divider">
-
-                <p class="custom-text" style="text-align: center; font-size: 1.15rem; font-weight: bold; color: var(--accent-red);">
-                    Happy Birthday, Divyansha! 🎂✨<br>
-                    Tum hamesha meri favorite rehongi.
-                </p>
-
-                <p class="custom-text" style="text-align: right; margin-top: 30px; font-weight: bold;">
-                    Always Yours,<br>
-                    <span style="font-family: 'Caveat', cursive; font-size: 2rem; color: var(--accent-red);">With All My Heart 🤍</span>
-                </p>
-            </div>
-        </div>
-
     </div>
 
+    <!-- Pop-up Greeting Card Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="letter-card">
+            <button class="close-btn" id="closeCardBtn">&times;</button>
+            <div class="letter-left">
+                <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=400&auto=format&fit=crop" alt="Cute Wish Graphic">
+            </div>
+            <div class="letter-right">
+                <h3>To You ❤️</h3>
+                <p>Wishing you a day filled with happiness and a year filled with joy. May all your dreams and wishes come true today and always! Have an absolute blast! ✨</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Floating Hearts and Modal Interactions -->
     <script>
-        function openTab(pageId, element) {
-            // Hide all pages
-            var pages = document.querySelectorAll('.page');
-            for (var i = 0; i < pages.length; i++) {
-                pages[i].classList.remove('active');
-            }
+        // Modal functionality
+        const openBtn = document.getElementById('openCardBtn');
+        const closeBtn = document.getElementById('closeCardBtn');
+        const modalOverlay = document.getElementById('modalOverlay');
 
-            // Show selected page
-            var selectedPage = document.getElementById(pageId);
-            if (selectedPage) {
-                selectedPage.classList.add('active');
-            }
+        openBtn.addEventListener('click', () => {
+            modalOverlay.classList.add('active');
+        });
 
-            // Update Active Nav Link
-            var navLinks = document.querySelectorAll('.nav-link');
-            for (var j = 0; j < navLinks.length; j++) {
-                navLinks[j].classList.remove('active');
-            }
+        closeBtn.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+        });
 
-            if (element) {
-                element.classList.add('active');
-            } else {
-                var map = {
-                    'page-greetings': 0,
-                    'page-no-option': 1,
-                    'page-gifts': 2,
-                    'page-pictures': 3,
-                    'page-flowers': 4,
-                    'page-letter': 5
-                };
-                if (map[pageId] !== undefined) {
-                    navLinks[map[pageId]].classList.add('active');
-                }
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
             }
+        });
 
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Floating Hearts Generator
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            
+            // Random horizontal positioning and sizing
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            const size = Math.random() * 20 + 15; // between 15px and 35px
+            heart.style.width = size + 'px';
+            heart.style.height = size + 'px';
+            
+            // Random animation duration
+            const duration = Math.random() * 2 + 3; // between 3s and 5s
+            heart.style.animationDuration = duration + 's';
+            
+            document.body.appendChild(heart);
+
+            // Remove heart after animation completes
+            setTimeout(() => {
+                heart.remove();
+            }, duration * 1000);
         }
+
+        // Generate hearts continuously
+        setInterval(createHeart, 300);
     </script>
 </body>
 </html>
